@@ -13,8 +13,15 @@ return new class extends Migration
     {
         Schema::create('users', static function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('first_name');
+            $table->string('middle_name')->nullable();
+            $table->string('last_name');
+            $table->string('username')->unique();
             $table->string('email')->unique();
+            $table->date('date_of_birth')->nullable();
+            $table->string('phone_number',15)->unique()->nullable();
+            $table->integer('gender');
+            $table->string('role');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
@@ -30,3 +37,4 @@ return new class extends Migration
         Schema::dropIfExists('users');
     }
 };
+
