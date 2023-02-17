@@ -4,30 +4,32 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
     public function up(): void
     {
         Schema::create('books', static function (Blueprint $table) {
-            $table->id();
+            $table->id('id_book');
             $table->string('title');
-            $table->string('author');
-            $table->string('isbn')->unique();
-            $table->string('publisher');
-            $table->string('edition');
-            $table->string('publisher_date');
-            $table->string('category');
-            $table->string('language');
-            $table->string('pages');
             $table->string('cover');
+            $table->integer('pages');
+            $table->string('edition');
+            $table->string('language');
             $table->string('description');
+            $table->date('publisher_date');
+            $table->string('isbn')->unique();
+            $table->unsignedBigInteger('author_id');
+            $table->unsignedBigInteger('publisher_id');
+            $table->unsignedBigInteger('category_id');
+            $table->boolean('is_archived')->default(false);
+            $table->foreign('author_id')->references('id_user')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('publisher_id')->references('id_publisher')->on('publishers')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('category_id')->references('id_category')->on('categories')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
-//php artisan make:migration create_publisher_table
 
     /**
      * Reverse the migrations.

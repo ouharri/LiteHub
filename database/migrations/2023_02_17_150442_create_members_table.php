@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('favoris', static function (Blueprint $table) {
-            $table->id('id_favoris');
+        Schema::create('members', static function (Blueprint $table) {
+            $table->id('id_member');
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('posts_id');
+            $table->unsignedBigInteger('group_id');
+            $table->foreign('group_id')->references('id_group')->on('groups')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('user_id')->references('id_user')->on('users')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('posts_id')->references('id_post')->on('posts')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('favoris');
+        Schema::dropIfExists('members');
     }
 };

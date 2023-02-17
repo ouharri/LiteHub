@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('posts', static function (Blueprint $table) {
-            $table->id();
-            $table->string('description');
+            $table->id('id_post');
             $table->string('book_id');
             $table->string('user_id');
+            $table->string('description');
             $table->boolean('is_archived')->default(false);
             $table->timestamps();
         });
