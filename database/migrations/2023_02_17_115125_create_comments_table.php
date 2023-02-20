@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreign('user_id')->references('id_user')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('post_id')->references('id_post')->on('posts')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

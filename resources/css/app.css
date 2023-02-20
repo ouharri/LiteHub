@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@layer base{
+
+}
+
+@layer utilities{
+    .toggle-checkbox:checked {
+        @apply right-0 border-red-600;
+        right: 0;
+        /* border-color: #68D391; */
+    }
+    .toggle-checkbox:checked + .toggle-label {
+        @apply bg-red-600;
+        /* background-color: #68D391; */
+    }
+}

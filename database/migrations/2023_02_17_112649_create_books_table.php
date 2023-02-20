@@ -28,6 +28,7 @@ return new class extends Migration {
             $table->foreign('publisher_id')->references('id_publisher')->on('publishers')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('category_id')->references('id_category')->on('categories')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

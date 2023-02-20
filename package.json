@@ -14,7 +14,7 @@
         "postcss": "^8.4.21",
         "pusher-js": "^8.0.1",
         "sass": "^1.56.1",
-        "tailwindcss": "^3.2.6",
+        "tailwindcss": "^3.2.7",
         "vite": "^4.0.0"
     },
     "dependencies": {
