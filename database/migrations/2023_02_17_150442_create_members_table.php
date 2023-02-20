@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreign('group_id')->references('id_group')->on('groups')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('user_id')->references('id_user')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

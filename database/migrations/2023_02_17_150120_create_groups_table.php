@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('description')->nullable();
             $table->foreign('created_by')->references('id_user')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
