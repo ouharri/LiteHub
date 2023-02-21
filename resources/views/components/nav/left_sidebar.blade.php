@@ -1,4 +1,5 @@
-<aside class=" w-1/6 py-10 pl-10  min-w-min  border-r border-gray-300 dark:border-zinc-700  hidden md:block">
+<!-- Left Sidebar Sidebar L-->
+<aside class=" w-1/6 py-10 pl-10  min-w-min  border-r border-gray-300 dark:border-zinc-700  hidden md:block transition duration-1000 ease-linear " id="left-sidebar">
 
     <div class=" font-bold text-lg flex items-center gap-x-3">
         <svg class="h-8 w-8 fill-red-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -96,6 +97,8 @@
         </a>
 
 
-    </div><!-- /Menu -->
+    </div>
+    <!-- /Menu -->
 
 </aside>
+<!-- /Left Sidebar -->

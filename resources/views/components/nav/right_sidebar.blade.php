@@ -1,3 +1,4 @@
+<!-- Right Sidebar -->
 <aside class=" w-1/5 py-10 px-10  min-w-min  border-l border-gray-300 dark:border-zinc-700 hidden lg:block ">
 
     <div class="relative items-center content-center flex">
@@ -107,3 +108,4 @@
     </div>
 
 </aside>
+<!-- /Right Sidebar -->

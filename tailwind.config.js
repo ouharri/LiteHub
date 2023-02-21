@@ -1,13 +1,13 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
-    darkMode: 'class', //false, class, media
+    // darkMode: ['class', '[data-mode="dark"]'], // or 'media' or 'class'
+    darkMode: 'class',
     content: [
-        "*.{html,js}",
-        "./resources/views/test.blade.php",
-        "./resources/views/layout/template.blade.php",
-        // "./resources/js/app.js",
-        // "./resources/css/app.css"
+        "*.{blade,php,html,js}",
+        "./resources/views/*",
+        "./resources/views/layout/*",
+        "./resources/views/Components/nav/*",
     ],
     theme: {
         screens:{
@@ -29,5 +29,7 @@ module.exports = {
 
         }
     },
-    plugins: [],
+    plugins: [
+        // require('flowbite/plugin')
+    ],
 }

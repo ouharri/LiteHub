@@ -21,3 +21,52 @@
         /* background-color: #68D391; */
     }
 }
+
+
+
+
+html{
+    scroll-behavior: smooth;
+    transition: all 1s ease;
+}
+
+body::-webkit-scrollbar {
+    height: 8px;
+    width: 8px; /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+    background: transparent !important; /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #EFEFEF; /* color of the scroll thumb */
+    border-radius: 20px; /* roundness of the scroll thumb */
+    /*border: 1px solid var(--blue); !* creates padding around scroll thumb *!*/
+}
+
+
+.main {
+    transition: all 1s ease;
+}
+
+
+
+@media (max-width: 991px) {
+
+    .navigation-dash.active {
+        width: 200px;
+        left: 0;
+    }
+
+    .main {
+        transition: all 0.1s ease;
+        width: 100%;
+        left: 0;
+    }
+
+    .main.active {
+        left: 200px;
+    }
+
+}
