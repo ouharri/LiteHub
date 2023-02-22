@@ -4,12 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+=======
+>>>>>>> origin/main
 
 class Post extends Model
 {
     use HasFactory;
+<<<<<<< HEAD
 
     public function comments(): HasMany
     {
@@ -35,4 +39,6 @@ class Post extends Model
     {
         return $this->hasMany(Star::class);
     }
+=======
+>>>>>>> origin/main
 }
