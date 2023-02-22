@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\users\userStoreRequest;
 use App\Http\Requests\users\userUpdateRequest;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
 use LaravelIdea\Helper\App\Models\_IH_User_C;
@@ -14,10 +15,10 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): \Illuminate\Database\Eloquent\Collection|array|_IH_User_C|null
+    public function index(): Collection|array|_IH_User_C|null
     {
         //
-       return (new \App\Models\User)->find(1)
+       return (new User)->find(1)
            ?->with('roles')->get();
     }
 
