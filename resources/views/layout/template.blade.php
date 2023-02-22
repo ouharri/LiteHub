@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="en" :class="isDark ? 'dark' : 'light'" x-data="{ isDark: window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches }">
+<html lang="en" :class="isDark ? 'dark' : 'light'"
+      x-data="{ isDark: window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches }">
 <head>
     <meta charset="UTF-8">
 
@@ -22,9 +23,11 @@
 
 </head>
 
-<body class="font-montserrat text-sm bg-white dark:bg-zinc-900 transition duration-1000 ease-linear">
+<body
+    class="font-montserrat text-sm bg-white dark:bg-zinc-900 transition duration-1000 ease-linear">
 
-<div class="flex min-h-screen  2xl:max-w-screen-2xl 2xl:mx-auto 2xl:border-x-2 2xl:border-gray-200 dark:2xl:border-zinc-700 transition duration-1000 ease-linear w-full">
+<div
+    class="flex min-h-screen  2xl:max-w-screen-2xl 2xl:mx-auto 2xl:border-x-2 2xl:border-gray-200 dark:2xl:border-zinc-700 w-full dark:bg-gray-800 dark:text-gray-200 overflow-x-hidden  transition duration-1000 ease-linear">
 
     @yield('body')
 

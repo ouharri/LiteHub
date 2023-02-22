@@ -9,6 +9,7 @@
         "autoprefixer": "^10.4.13",
         "axios": "^1.1.2",
         "bootstrap": "^5.2.3",
+        "flowbite": "^1.6.3",
         "laravel-echo": "^1.15.0",
         "laravel-vite-plugin": "^0.7.2",
         "postcss": "^8.4.21",
@@ -19,9 +20,9 @@
     },
     "dependencies": {
         "alpinejs": "^3.11.1",
-        "flowbite": "^1.6.3",
         "jquery": "^3.6.3",
         "lodash": "^4.17.21",
-        "sweetalert2": "^11.7.1"
+        "sweetalert2": "^11.7.1",
+        "tailwindcss-dark-mode": "^1.1.7"
     }
 }

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Start;
+use App\Models\Star;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -36,7 +36,7 @@ class StartController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Start $start): Response
+    public function show(Star $start): Response
     {
         //
     }
@@ -44,7 +44,7 @@ class StartController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Start $start): Response
+    public function edit(Star $start): Response
     {
         //
     }
@@ -52,7 +52,7 @@ class StartController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Start $start): RedirectResponse
+    public function update(Request $request, Star $start): RedirectResponse
     {
         //
     }
@@ -60,7 +60,7 @@ class StartController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Start $start): RedirectResponse
+    public function destroy(Star $start): RedirectResponse
     {
         //
     }

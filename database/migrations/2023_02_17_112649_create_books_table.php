@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
+//use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration {
     /**
@@ -11,7 +11,7 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('books', static function (Blueprint $table) {
-            $table->id('id_book');
+            $table->id();
             $table->string('title');
             $table->string('cover');
             $table->integer('pages');
@@ -24,9 +24,9 @@ return new class extends Migration {
             $table->unsignedBigInteger('publisher_id');
             $table->unsignedBigInteger('category_id');
             $table->boolean('is_archived')->default(false);
-            $table->foreign('author_id')->references('id_user')->on('users')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('publisher_id')->references('id_publisher')->on('publishers')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('category_id')->references('id_category')->on('categories')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('author_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('publisher_id')->references('id')->on('publishers')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
             $table->softDeletes();
         });

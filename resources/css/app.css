@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+/*@media (prefers-color-scheme: dark) {*/
+/*    body { background: #0f172a !important; }*/
+/*}*/
+
 
 
 @layer base{

@@ -14,4 +14,14 @@ class User extends Model
     {
         return $this->belongsToMany(Role::class);
     }
+
+    public function members(): BelongsToMany
+    {
+        return $this->belongsToMany(Member::class);
+    }
+
+    public function posts(): BelongsToMany
+    {
+        return $this->belongsToMany(Post::class);
+    }
 }

@@ -1,7 +1,6 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
-    // darkMode: ['class', '[data-mode="dark"]'], // or 'media' or 'class'
     darkMode: 'class',
     content: [
         "*.{blade,php,html,js}",
@@ -30,6 +29,8 @@ module.exports = {
         }
     },
     plugins: [
+        // Enable the dark mode plugin
+        require('tailwindcss-dark-mode')(),
         // require('flowbite/plugin')
     ],
 }
