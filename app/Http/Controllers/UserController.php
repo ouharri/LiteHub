@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\users\userStoreRequest;
 use App\Http\Requests\users\userUpdateRequest;
+use App\Models\Group;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\RedirectResponse;
@@ -15,11 +16,14 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): Collection|array|_IH_User_C|null
+    public function index(): void
     {
-        //
-       return (new User)->find(1)
-           ?->with('roles')->get();
+        $user = (new User)->find(1);
+        $group = (new Group)->find(2);
+
+        $group->users()->attach(1);
+//       return (new User)->find(1)
+//           ?->with('roles')->get();
     }
 
     /**
