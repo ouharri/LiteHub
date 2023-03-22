@@ -29,8 +29,7 @@ module.exports = {
         }
     },
     plugins: [
-        // Enable the dark mode plugin
         require('tailwindcss-dark-mode')(),
-        // require('flowbite/plugin')
+        require('flowbite/plugin')
     ],
 }

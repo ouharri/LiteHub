@@ -22,10 +22,11 @@ window.$ = window.jQuery = $;
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
-
 import Alpine from 'alpinejs'
 window.Alpine = Alpine
 Alpine.start()
+
+import 'boxicons';
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening

@@ -1,29 +1,143 @@
-<header class=" font-bold text-lg flex items-center  gap-x-3 md:hidden mb-12 ">
-                <span class="mr-6 cursor-pointer" id="menu-toggle">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-gray-700 dark:text-white" fill="none"
-                         viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h7"/>
-                      </svg>
-                </span>
-    <a href="#" id="Logo" class="flex items-center">
-        <svg class="h-8 w-8 fill-red-600 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path
-                d="M10 15.5v-7c0-.41.47-.65.8-.4l4.67 3.5c.27.2.27.6 0 .8l-4.67 3.5c-.33.25-.8.01-.8-.4Zm11.96-4.45c.58 6.26-4.64 11.48-10.9 10.9 -4.43-.41-8.12-3.85-8.9-8.23 -.26-1.42-.19-2.78.12-4.04 .14-.58.76-.9 1.31-.7v0c.47.17.75.67.63 1.16 -.2.82-.27 1.7-.19 2.61 .37 4.04 3.89 7.25 7.95 7.26 4.79.01 8.61-4.21 7.94-9.12 -.51-3.7-3.66-6.62-7.39-6.86 -.83-.06-1.63.02-2.38.2 -.49.11-.99-.16-1.16-.64v0c-.2-.56.12-1.17.69-1.31 1.79-.43 3.75-.41 5.78.37 3.56 1.35 6.15 4.62 6.5 8.4ZM5.5 4C4.67 4 4 4.67 4 5.5 4 6.33 4.67 7 5.5 7 6.33 7 7 6.33 7 5.5 7 4.67 6.33 4 5.5 4Z"></path>
-        </svg>
-        <div class="tracking-wide dark:text-white flex-1">MMovie<span class="text-red-600">.</span></div>
-    </a>
-    <div class="relative items-center content-center flex ml-2">
-                    <span class="text-gray-400 absolute left-4 cursor-pointer">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
-                             stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+<nav class="bg-white md:navbar dark:bg-gray-500 border-gray-200 px-2 sm:px-4 py-2.5">
+    <div class="container flex flex-wrap items-center justify-between mx-auto">
+        <a href="https://flowbite.com/" class="flex items-center">
+            <img src="https://flowbite.com/docs/images/logo.svg" class="h-6 mr-3 sm:h-9" alt="Flowbite Logo"/>
+            <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
+        </a>
+        <div class="flex md:order-2">
+            <button type="button" data-collapse-toggle="navbar-search" aria-controls="navbar-search"
+                    aria-expanded="false"
+                    class="md:hidden text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 mr-1">
+                <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                          d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                          clip-rule="evenodd"></path>
+                </svg>
+                <span class="sr-only">Search</span>
+            </button>
+
+            <button data-collapse-toggle="navbar-search" type="button"
+                    class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                    aria-controls="navbar-search" aria-expanded="false">
+                <span class="sr-only">Open menu</span>
+                <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                          d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                          clip-rule="evenodd"></path>
+                </svg>
+            </button>
+
+            <div class="flex">
+                <!-- Dropdown menu -->
+                <button id="dropdownAvatarNameButton" data-dropdown-toggle="dropdownAvatarName"
+                        class=" md:flex flex items-center text-sm font-medium text-gray-900 rounded-full hover:text-blue-600 dark:hover:text-blue-500 md:mr-0 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:text-white"
+                        type="button">
+                    <span class="sr-only">Open user menu</span>
+                    <span class="hidden md:block">Bonnie Green</span>
+                    <div class="relative ml-2 flex space-x-2">
+                        <img class="w-8 h-8 mr-2 rounded-full" src="/docs/images/people/profile-picture-3.jpg"
+                             alt="user photo">
+                        <svg class="w-4 h-4 mx-1.5 absolute right-0 bottom-0 " aria-hidden="true" fill="currentColor"
+                             viewBox="0 0 20 20"
+                             xmlns="http://www.w3.org/2000/svg" style="right: 6px;bottom: -4.5px;"
+                        >
+                            <path fill-rule="evenodd"
+                                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                  clip-rule="evenodd"></path>
                         </svg>
-                    </span>
-        <label>
-            <input type="text"
-                   class="text-xs ring-1 bg-transparent ring-gray-200 dark:ring-zinc-600 focus:ring-red-300 pl-10 pr-5 text-gray-600 dark:text-white  py-3 rounded-full w-full outline-none focus:ring-1"
-                   placeholder="Search ...">
-        </label>
+                    </div>
+                </button>
+                <div id="dropdownAvatarName"
+                     class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+                    <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
+                        <div class="font-medium ">Pro User</div>
+                        <div class="truncate">name@flowbite.com</div>
+                    </div>
+                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
+                        aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton">
+                        <li>
+                            <a href="#"
+                               class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="#"
+                               class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+                        </li>
+                        <li>
+                            <a href="#"
+                               class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+                        </li>
+                    </ul>
+                    <div class="py-2">
+                        <a href="#"
+                           class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign
+                            out</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-search">
+            <div class="relative mt-3 md:hidden">
+                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                    <svg class="w-5 h-5 text-gray-500" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                              d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                              clip-rule="evenodd"></path>
+                    </svg>
+                </div>
+                <input type="text" id="search-navbar"
+                       class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                       placeholder="Search...">
+            </div>
+            <ul class="flex flex-col items-center p-4 mt-4 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
+                <li>
+                    <div class="relative hidden md:block">
+                        <div class="absolute left-0 top-[21px] flex items-center pl-3 pointer-events-none"
+                             style="top: 8px">
+                            <svg class="w-5 h-5" aria-hidden="true" fill="rgba(255,219,88,0.49)"
+                                 viewBox="0 0 20 20"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                      d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                      clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="sr-only">Search icon</span>
+                        </div>
+                        <label for="search-navbar">
+                            <input type="text" id="search-navbar" style="width: 500px;border: 1px solid rgba(104,211,145,0.48);height: 35px;color: rgba(255,219,88,0.49);"
+                                   class="block p-2 pl-10 text-sm text-green-900 border bg-transparent border-green-500 rounded-3xl placeholder:[color:rgba(255,219,88,0.49)] focus:ring-green-500 focus:border-green-500 dark:border-green-600 dark:placeholder-green-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500"
+                                   placeholder="Search in LiteHub ..." >
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <a href="#"
+                       class="block flex items-stretch space-x-1 py-2 pl-3 pr-4 text-white main-color md:bg-transparent md:text-blue-700 md:p-0 hover:second-color dark:text-white"
+                       aria-current="page">
+                        <box-icon type='solid' name='home' size='xs'></box-icon>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"
+                       class="block flex items-stretch space-x-1 py-2 pl-3 pr-4 text-white main-color md:bg-transparent md:text-blue-700 md:p-0 hover:second-color dark:text-white"
+                       aria-current="page">
+                        <box-icon type='solid' name='book-alt' size='xs'></box-icon>
+                        <span>Books</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"
+                       class="block flex items-stretch space-x-1 py-2 pl-3 pr-4 text-white main-color md:bg-transparent md:text-blue-700 md:p-0 hover:second-color dark:text-white"
+                       aria-current="page">
+                        <box-icon type='solid' name='group' size='xs'></box-icon>
+                        <span>Groups</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
-</header>
+</nav>

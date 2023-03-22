@@ -9,17 +9,17 @@
 /*}*/
 
 
-
-@layer base{
+@layer base {
 
 }
 
-@layer utilities{
+@layer utilities {
     .toggle-checkbox:checked {
         @apply right-0 border-red-600;
         right: 0;
         /* border-color: #68D391; */
     }
+
     .toggle-checkbox:checked + .toggle-label {
         @apply bg-red-600;
         /* background-color: #68D391; */
@@ -27,9 +27,7 @@
 }
 
 
-
-
-html{
+html {
     scroll-behavior: smooth;
     transition: all 1s ease;
 }
@@ -54,6 +52,45 @@ body::-webkit-scrollbar-thumb {
     transition: all 1s ease;
 }
 
+/* navbar */
+.navbar {
+    position: fixed;
+    width: 100vw;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+}
+
+.main-color {
+    color: #68D391 !important;
+    fill: #68D391 !important;
+}
+
+.hover\:main-color:hover {
+    --tw-bg-opacity: 1;
+    color: #68D391 !important;
+    border-bottom: 2px solid #68D391;
+}
+
+.second-color {
+    color: #FFDB58 !important;
+    fill: #FFDB58 !important;
+}
+
+.hover\:second-color:hover {
+    --tw-bg-opacity: 1;
+    color: #FFDB58 !important;
+    fill: #FFDB58 !important;
+    border-bottom: 2px solid #FFDB58;
+}
+
+input::placeholder {
+    color: #FFDB58 !important;
+}
 
 
 @media (max-width: 991px) {
@@ -73,4 +110,19 @@ body::-webkit-scrollbar-thumb {
         left: 200px;
     }
 
+}
+
+@media (min-width: 768px) {
+    .md\:navbar {
+        --tw-bg-opacity: 1;
+        position: fixed;
+        width: 100vw;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+    }
 }

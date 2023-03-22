@@ -23,13 +23,23 @@
 
 </head>
 
-<body
-    class="font-montserrat text-sm bg-white dark:bg-zinc-900 transition duration-1000 ease-linear">
+<body class="font-montserrat text-sm bg-white dark:bg-zinc-900 transition duration-1000 ease-linear">
+
+<x-nav.navbar></x-nav.navbar>
 
 <div
     class="flex min-h-screen  2xl:max-w-screen-2xl 2xl:mx-auto 2xl:border-x-2 2xl:border-gray-200 dark:2xl:border-zinc-700 w-full dark:bg-gray-800 dark:text-gray-200 overflow-x-hidden  transition duration-1000 ease-linear">
 
-    @yield('body')
+    <x-nav.left_sidebar></x-nav.left_sidebar>
+
+    <main class="main flex-1 py-10  px-5 sm:px-10 transition duration-200" id="main-page">
+
+        @yield('body')
+
+    </main>
+
+    <x-nav.right_sidebar></x-nav.right_sidebar>
+
 
 </div>
 
