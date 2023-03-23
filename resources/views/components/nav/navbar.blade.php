@@ -119,7 +119,7 @@
                 <li>
                     {{--                     href="{{route('home')}}"--}}
                     <a
-                        class="block flex items-stretch hidden md:block space-x-1 py-2 pl-3 pr-4 text-white main-color md:bg-transparent md:text-blue-700 md:p-0 hover:second-color dark:text-white"
+                        class="block flex cursor-pointer items-stretch hidden md:block space-x-1 py-2 pl-3 pr-4 text-white main-color md:bg-transparent md:text-blue-700 md:p-0 hover:second-color dark:text-white"
                         aria-current="page">
                         <box-icon type='solid' name='home' size='xs'></box-icon>
                         <span>Home</span>
@@ -128,7 +128,7 @@
                 <li>
                     {{--                    href="{{route('books')}}"--}}
                     <a
-                        class="block flex hidden md:block items-stretch space-x-1 py-2 pl-3 pr-4 text-white main-color md:bg-transparent md:text-blue-700 md:p-0 hover:second-color dark:text-white"
+                        class="block flex cursor-pointer hidden md:block items-stretch space-x-1 py-2 pl-3 pr-4 text-white main-color md:bg-transparent md:text-blue-700 md:p-0 hover:second-color dark:text-white"
                         aria-current="page">
                         <box-icon type='solid' name='book-alt' size='xs'></box-icon>
                         <span>Books</span>
@@ -137,7 +137,7 @@
                 <li>
                     {{--                    href="{{route('groups')}}"--}}
                     <a
-                        class="block flex hidden md:block items-stretch space-x-1 py-2 pl-3 pr-4 text-white main-color md:bg-transparent md:text-blue-700 md:p-0 hover:second-color dark:text-white"
+                        class="block flex cursor-pointer hidden md:block items-stretch space-x-1 py-2 pl-3 pr-4 text-white main-color md:bg-transparent md:text-blue-700 md:p-0 hover:second-color dark:text-white"
                         aria-current="page">
                         <box-icon type='solid' name='group' size='xs'></box-icon>
                         <span>Groups</span>
