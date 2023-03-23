@@ -10,6 +10,8 @@ class User extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function roles(): BelongsToMany
     {
         return $this->belongsToMany(Role::class);

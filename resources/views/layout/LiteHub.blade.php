@@ -21,6 +21,8 @@
 
     <title>@yield('title', config('app.name') )</title>
 
+    @yield('head')
+
 </head>
 
 <body class="font-montserrat text-sm bg-white dark:bg-zinc-900 transition duration-1000 ease-linear">
@@ -32,7 +34,7 @@
 
     <x-nav.left_sidebar></x-nav.left_sidebar>
 
-    <main class="main flex-1 py-10  px-5 sm:px-10 transition duration-200" id="main-page">
+    <main class="main flex-1 py-10 md:mt-[60px]  px-5 sm:px-10 transition duration-200" id="main-page">
 
         @yield('body')
 
@@ -42,6 +44,6 @@
 
 
 </div>
-
+@yield('scripts')
 </body>
 </html>

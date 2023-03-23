@@ -23,6 +23,7 @@
         "boxicons": "^2.1.4",
         "jquery": "^3.6.3",
         "lodash": "^4.17.21",
+        "pspdfkit": "^2023.1.4",
         "sweetalert2": "^11.7.1",
         "tailwindcss-dark-mode": "^1.1.7"
     }

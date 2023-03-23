@@ -76,6 +76,16 @@ body::-webkit-scrollbar-thumb {
     border-bottom: 2px solid #68D391;
 }
 
+.menuDashActive{
+    fill: #68D391 !important;
+    border-right: 4px solid #68D391;
+}
+
+.menuDash:hover{
+    fill: #FFDB58 !important;
+    border-right: 3px solid #FFDB58;
+}
+
 .second-color {
     color: #FFDB58 !important;
     fill: #FFDB58 !important;
@@ -88,8 +98,38 @@ body::-webkit-scrollbar-thumb {
     border-bottom: 2px solid #FFDB58;
 }
 
+.searchInput {
+    width: 500px;
+    border: 1px solid rgba(104, 211, 145, 0.48);
+    height: 35px;
+    color: rgba(255, 219, 88, 0.49);
+}
+
 input::placeholder {
     color: #FFDB58 !important;
+}
+
+.dash{
+    margin-top:0px;
+}
+
+/*book*/
+.book:hover {
+    transform: scale(1.03);
+    transition: all 0.5s ease;
+    box-shadow: 0 0 10px rgba(104, 211, 145, 0.51);
+}
+
+@media (max-width: 1276px) {
+    .hideAvatar {
+        display: none !important;
+    }
+}
+
+@media (max-width: 1057px) {
+    .searchInput{
+        width: 250px;
+    }
 }
 
 

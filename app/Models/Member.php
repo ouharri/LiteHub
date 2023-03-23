@@ -11,6 +11,9 @@ class Member extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
+
     public function user(): BelongsToMany
     {
         return $this->belongsToMany(User::class);

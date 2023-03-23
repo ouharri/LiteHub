@@ -16,14 +16,14 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): void
+    public function index()
     {
         $user = (new User)->find(1);
         $group = (new Group)->find(2);
 
         $group->users()->attach(1);
-//       return (new User)->find(1)
-//           ?->with('roles')->get();
+       return (new User)->find(1)
+           ?->with('roles')->get();
     }
 
     /**
