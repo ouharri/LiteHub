@@ -2,6 +2,7 @@
 
 //use Illuminate\Support\Facades\Route;
 //Use App\Models\User;
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -25,3 +26,7 @@ Route::get('/user', [UserController::class, 'index']);
 Route::get('/test', static function () {
     return view('test');
 });
+
+Route::resource('books', BookController::class);
+Route::get('/books/{book}/detail', [BookController::class, 'detail'])
+    ->name('books.detail');

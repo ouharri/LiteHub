@@ -14,7 +14,17 @@ class BookController extends Controller
      */
     public function index(): Response
     {
-        //
+        return response()->view('books.index', [
+            'books' => Book::all(),
+        ]);
+    }
+
+    public function detail(int $id): Response
+    {
+        echo $id;
+        return response()->view('books.detail', [
+            'book' =>$id,
+        ]);
     }
 
     /**
