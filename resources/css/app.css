@@ -70,6 +70,10 @@ body::-webkit-scrollbar-thumb {
     fill: #68D391 !important;
 }
 
+.bg-primary {
+    background-color: #68D391 !important;
+}
+
 .hover\:main-color:hover {
     --tw-bg-opacity: 1;
     color: #68D391 !important;

@@ -1,13 +1,17 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
-
+const defaultTheme = require('tailwindcss/defaultTheme');
+/** @type {import('tailwindcss').Config} */
 module.exports = {
     darkMode: 'class',
     content: [
+        './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
+        './storage/framework/views/*.php',
+        './resources/views/**/*.blade.php',
         "*.{blade,php,html,js}",
         "./resources/views/*",
         "./resources/views/layout/*",
         "./resources/views/Components/nav/*",
     ],
+
     theme: {
         screens:{
             'xs': '350px',
@@ -30,6 +34,7 @@ module.exports = {
     },
     plugins: [
         require('tailwindcss-dark-mode')(),
-        require('flowbite/plugin')
+        require('flowbite/plugin'),
+        require('@tailwindcss/forms')
     ],
-}
+};
