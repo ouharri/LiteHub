@@ -3,9 +3,9 @@
 @section('title','ff')
 
 @section('body')
-    <section class="mt-9">
-        <div class="flex items-center justify-between">
-            <span class="font-semibold text-gray-700 text-base dark:text-white">Books :</span>
+    <section class="mt-9 overflow-hidden">
+        <div class="flex items-center justify-between overflow-hidden">
+            <span class="font-semibold text-gray-700 text-base dark:text-white ">Books :</span>
             <div class="flex items-center space-x-2 fill-gray-500">
                 <svg
                     class="h-7 w-7 rounded-full border p-1 hover:border-red-600 hover:fill-red-600 dark:fill-white dark:hover:fill-red-600"

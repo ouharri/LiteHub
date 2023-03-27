@@ -1,6 +1,13 @@
 <!doctype html>
 <html lang="en" :class="isDark ? 'dark' : 'light'"
-      x-data="{ isDark: window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches }">
+      x-data="{
+          isDark: localStorage.getItem('mode') !== null ?
+                JSON.parse(localStorage.getItem('mode')) === 'dark'
+                : window.matchMedia &&
+                window.matchMedia('(prefers-color-scheme: dark)').matches ?
+                window.matchMedia &&
+                window.matchMedia('(prefers-color-scheme: dark)').matches : false
+          }">
 <head>
     <meta charset="UTF-8">
 
@@ -17,9 +24,11 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css','resources/css/tailwind.css', 'resources/js/app.js'])
 
     <title>@yield('title', config('app.name') )</title>
+
+    <link rel="icon" href="{{ asset('images/LiteHub.png') }}">
 
     @yield('head')
 
@@ -32,7 +41,7 @@
 <x-nav.navbar></x-nav.navbar>
 
 <div
-    class="flex min-h-screen  2xl:max-w-screen-2xl 2xl:mx-auto 2xl:border-x-2 2xl:border-gray-200 dark:2xl:border-zinc-700 w-full dark:bg-gray-800 dark:text-gray-200 overflow-x-hidden  transition duration-1000 ease-linear">
+    class="flex min-h-screen 2xl:max-w-screen-2xl 2xl:mx-auto 2xl:border-x-2 2xl:border-gray-200 dark:2xl:border-zinc-700 w-full dark:bg-gray-800 dark:text-gray-200 overflow-x-hidden transition duration-1000 ease-linear">
 
     <x-nav.left_sidebar></x-nav.left_sidebar>
 
@@ -42,7 +51,7 @@
 
     </main>
 
-{{--    <x-nav.right_sidebar></x-nav.right_sidebar>--}}
+    {{--    <x-nav.right_sidebar></x-nav.right_sidebar>--}}
 
 
 </div>

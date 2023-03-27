@@ -1,3 +1,4 @@
+{{--{{dd(Auth::user()->roles->contains('role', 'ADMIN'))}}--}}
 <nav
     class="bg-white md:navbar dark:bg-gray-700 border-gray-200 px-2 sm:px-4 py-2.5 transition duration-1000 ease-linear">
     <div class="container flex flex-wrap items-center justify-between mx-auto transition duration-1000 ease-linear">
@@ -33,51 +34,71 @@
                 </svg>
             </button>
 
-            <button id="dropdownAvatarNameButton" data-dropdown-toggle="dropdownAvatarName"
-                    class=" md:flex flex items-center text-sm font-medium text-gray-900 rounded-full hover:text-blue-600 dark:hover:text-blue-500 md:mr-0 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:text-white"
-                    type="button">
-                <span class="sr-only">Open user menu</span>
-                <span class="hideAvatar">Bonnie Green</span>
-                <div class="relative ml-2 flex space-x-2">
-                    <img class="w-8 h-8 mr-2 rounded-full" src="/docs/images/people/profile-picture-3.jpg"
-                         alt="user photo">
-                    <svg class="w-4 h-4 mx-1.5 absolute right-0 bottom-0 " aria-hidden="true" fill="currentColor"
-                         viewBox="0 0 20 20"
-                         xmlns="http://www.w3.org/2000/svg" style="right: 6px;bottom: -4.5px;"
-                    >
-                        <path fill-rule="evenodd"
-                              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                              clip-rule="evenodd"></path>
-                    </svg>
+            @auth
+                <button id="dropdownAvatarNameButton" data-dropdown-toggle="dropdownAvatarName"
+                        class=" md:flex flex items-center text-sm font-medium text-gray-900 rounded-full hover:text-blue-600 dark:hover:text-blue-500 md:mr-0 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:text-white"
+                        type="button">
+                    <span class="sr-only">Open user menu</span>
+                    <span
+                        class="hideAvatar textGradient">{{implode(" ",[Auth::user()->first_name,Auth::user()->middle_name,Auth::user()->last_name])}}</span>
+                    <div class="relative ml-2 flex space-x-2">
+                        <img class="w-8 h-8 mr-2 rounded-full" src="{{Auth::user()->avatar}}"
+                             alt="{{Auth::user()->first_name}}">
+                        <svg class="w-4 h-4 mx-1.5 absolute right-0 bottom-0 " aria-hidden="true" fill="currentColor"
+                             viewBox="0 0 20 20"
+                             xmlns="http://www.w3.org/2000/svg" style="right: 6px;bottom: -4.5px;"
+                        >
+                            <path fill-rule="evenodd"
+                                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                  clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                </button>
+                <div id="dropdownAvatarName"
+                     class="z-50 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600"
+                     style="width: 220px">
+
+                    <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
+                        <div class="font-medium flex items-center mb-2 space-x-2">
+                            <img class="w-8 h-8 mr-2 rounded-full" src="{{Auth::user()->avatar}}"
+                                 alt="{{Auth::user()->first_name}}">
+                            <span>{{implode(" ",[Auth::user()->first_name,Auth::user()->middle_name,Auth::user()->last_name])}}</span>
+                        </div>
+                        <div class="truncate">{{Auth::user()->email}}</div>
+                    </div>
+                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
+                        aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton">
+                        <li>
+                            <a href="#"
+                               class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="#"
+                               class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+                        </li>
+                        <li>
+                            <a href="#"
+                               class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+                        </li>
+                        <li>
+                            <a href="{{route('profile.edit')}}"
+                               class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ __('Profile') }}</a>
+                        </li>
+                    </ul>
+                    <!-- Authentication -->
+                    <form method="POST" action="{{ route('logout') }}"
+                          class="block px-4 py-3 cursor-pointer text-sm text-gray-700 hover:bg-gray-100 rounded dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+                        @csrf
+
+                        <a :href="route('logout')"
+                           onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                            {{ __('Log Out') }}
+                        </a>
+
+                    </form>
                 </div>
-            </button>
-            <div id="dropdownAvatarName"
-                 class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
-                <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
-                    <div class="font-medium ">Pro User</div>
-                    <div class="truncate">name@flowbite.com</div>
-                </div>
-                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
-                    aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton">
-                    <li>
-                        <a href="#"
-                           class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="#"
-                           class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
-                    </li>
-                    <li>
-                        <a href="#"
-                           class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
-                    </li>
-                </ul>
-                <div class="py-2">
-                    <a href="#"
-                       class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign
-                        out</a>
-                </div>
-            </div>
+            @endauth
         </div>
         <div
             class="items-center transition duration-1000 ease-linear justify-between hidden w-full md:flex md:w-auto md:order-1"

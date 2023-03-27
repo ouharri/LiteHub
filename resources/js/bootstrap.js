@@ -16,6 +16,7 @@ import Swal from 'sweetalert2';
 window.Swal = Swal;
 
 import 'flowbite';
+import 'flowbite-datepicker';
 
 import $ from "jquery";
 window.$ = window.jQuery = $;

@@ -23,8 +23,10 @@
     "dependencies": {
         "alpinejs": "^3.11.1",
         "boxicons": "^2.1.4",
+        "flowbite-datepicker": "^1.2.2",
         "jquery": "^3.6.3",
         "lodash": "^4.17.21",
+        "preline": "^1.7.0",
         "pspdfkit": "^2023.1.4",
         "sweetalert2": "^11.7.1",
         "tailwindcss-dark-mode": "^1.1.7"

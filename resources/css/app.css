@@ -62,7 +62,7 @@ body::-webkit-scrollbar-thumb {
     align-items: center;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    z-index: 999;
+    /*z-index: 999;*/
 }
 
 .main-color {
@@ -80,12 +80,21 @@ body::-webkit-scrollbar-thumb {
     border-bottom: 2px solid #68D391;
 }
 
-.menuDashActive{
-    fill: #68D391 !important;
-    border-right: 4px solid #68D391;
+.menuDashActive {
+    fill: #FFDB58 !important;
+    border-right: 4px solid #FFDB58;
 }
 
-.menuDash:hover{
+.menuDashMain {
+    fill: #68D391 !important;
+    opacity: 0.8;
+}
+
+.svgMain {
+    fill: #68D391 !important;
+}
+
+.menuDash:hover {
     fill: #FFDB58 !important;
     border-right: 3px solid #FFDB58;
 }
@@ -93,6 +102,13 @@ body::-webkit-scrollbar-thumb {
 .second-color {
     color: #FFDB58 !important;
     fill: #FFDB58 !important;
+}
+
+.textGradient {
+    background: rgb(255, 206, 27);
+    background: linear-gradient(90deg, rgba(255, 206, 27, 1) 0%, rgba(255, 219, 87, 1) 47%, rgba(104, 211, 145, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .hover\:second-color:hover {
@@ -113,8 +129,8 @@ input::placeholder {
     color: #FFDB58 !important;
 }
 
-.dash{
-    margin-top:0px;
+.dash {
+    margin-top: 0px;
 }
 
 /*book*/
@@ -131,7 +147,7 @@ input::placeholder {
 }
 
 @media (max-width: 1057px) {
-    .searchInput{
+    .searchInput {
         width: 250px;
     }
 }

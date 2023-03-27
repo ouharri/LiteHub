@@ -2,11 +2,10 @@
 
 namespace App\Models;
 
- use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
- use Illuminate\Database\Eloquent\Relations\HasMany;
- use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
@@ -26,6 +25,11 @@ class User extends Authenticatable implements MustVerifyEmail
         'name',
         'email',
         'password',
+        'avatar',
+        'about_me',
+        'date_of_birth',
+        'phone_number',
+        'gender',
     ];
 
     /**
@@ -47,16 +51,6 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
-    protected static function boot(): void
-    {
-        parent::boot();
-
-        static::created(static function ($user) {
-            $role = Role::where('role', 'CLIENT')->first();
-            $user->roles()->attach($role);
-        });
-    }
-
     public function roles(): BelongsToMany
     {
         return $this->belongsToMany(Role::class);
@@ -69,7 +63,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function groups(): BelongsToMany
     {
-        return $this->belongsToMany(Group::class,'members');
+        return $this->belongsToMany(Group::class, 'members');
     }
 
     public function posts(): BelongsToMany

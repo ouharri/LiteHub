@@ -1,6 +1,13 @@
 <!doctype html>
 <html lang="en" :class="isDark ? 'dark' : 'light'"
-      x-data="{ isDark: window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches }">
+      x-data="{
+          isDark: localStorage.getItem('mode') !== null ?
+                JSON.parse(localStorage.getItem('mode')) === 'dark'
+                : window.matchMedia &&
+                window.matchMedia('(prefers-color-scheme: dark)').matches ?
+                window.matchMedia &&
+                window.matchMedia('(prefers-color-scheme: dark)').matches : false
+          }">
 <head>
     <meta charset="UTF-8">
 
@@ -16,6 +23,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <link rel="icon" href="{{ asset('images/LiteHub.png') }}">
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
