@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Book extends Model
 {
 
-
+    protected $guarded = [];
     public function posts(): HasMany
     {
         return $this->hasMany(Post::class);

@@ -21,7 +21,7 @@
                         <div class="h-full">
                             <h5 class="mb-1 dark:text-white">{{implode(" ",[Auth::user()->first_name,Auth::user()->middle_name,Auth::user()->last_name])}}</h5>
                             <p class="mb-0 font-semibold leading-normal dark:text-white dark:opacity-60 text-sm">
-                                {{ implode(" ", Auth::user()->roles->map(function ($value, $key) {
+                                {{ implode(", ", Auth::user()->roles->map(function ($value, $key) {
                                         return $value->role;
                                     })->toArray())
                                 }}

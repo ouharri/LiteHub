@@ -18,6 +18,7 @@ return new class extends Migration {
             $table->string('edition');
             $table->string('language');
             $table->string('description');
+            $table->string('pdf');
             $table->date('publisher_date');
             $table->string('isbn')->unique();
             $table->unsignedBigInteger('author_id');

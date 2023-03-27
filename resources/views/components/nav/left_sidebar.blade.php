@@ -70,7 +70,7 @@
             </a>
 
             <a class="{{ (Route::has('Management')?'menuDashActive' : 'menuDashMain' ) . ' cursor-pointer  flex items-center space-x-2 py-1  group hover:border-r-4 hover:font-semibold dark:hover:text-white menuDash' }}"
-               href=" #">
+               href="{{Route('books.create')}}">
                 <box-icon name='book-alt' class="h-5 w-5"></box-icon>
                 <span>Books</span>
             </a>

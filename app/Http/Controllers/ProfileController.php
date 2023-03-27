@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\User;
 use Cloudinary\Api\Exception\ApiError;
 use Cloudinary\Cloudinary;
 use Illuminate\Http\RedirectResponse;
@@ -77,12 +78,8 @@ class ProfileController extends Controller
                 ]
             );
         }
-//        dd(array_merge(
-//            $request->all(),
-//            ['avatar' => 'https://res.cloudinary.com/dggvib6ib/image/upload/v1679926507/LiteHub/images/' . 'user' . Auth::user()->id . 'LiteHub']
-//        ));
 
-        (new \App\Models\User)->FindOrFail($request->user()->id)
+        (new User)->FindOrFail($request->user()->id)
             ->update(
                 $image ?
                     array_merge(
@@ -90,7 +87,6 @@ class ProfileController extends Controller
                         ['avatar' => 'https://res.cloudinary.com/dggvib6ib/image/upload/v1679926507/LiteHub/images/' . 'user' . Auth::user()->id . 'LiteHub']
                     ) :
                     $request->all(),
-
             );
 
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
