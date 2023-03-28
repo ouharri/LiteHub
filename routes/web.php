@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ProfileController;
 //use Illuminate\Support\Facades\Route;
 
@@ -16,6 +17,9 @@ use App\Http\Controllers\ProfileController;
 */
 
 Route::resource('books', BookController::class)->middleware('auth');
+Route::get('/books/{id}/detail', [BookController::class, 'detail'])->name('books.detail')->middleware('auth');
+
+Route::post('comments', [CommentController::class, 'store'])->name('comments.store')->middleware('auth');
 
 Route::get('/', static function () {
     return view('welcome');

@@ -30,7 +30,9 @@ class CommentController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        //
+        (new Comment)->create($request->all());
+
+        return redirect()->back();
     }
 
     /**

@@ -13,8 +13,10 @@
             </div>
         </div>
 
-        <x-modal name="confirm-user-deletion" :show="$errors->userDeletion->isNotEmpty()" focusable style="z-index: 1000">
-            <form method="post" action="{{ route('books.store') }}" class="p-6" style="z-index: 1000" enctype="multipart/form-data">
+        <x-modal name="confirm-user-deletion" :show="$errors->userDeletion->isNotEmpty()" focusable
+                 style="z-index: 1000">
+            <form method="post" action="{{ route('books.store') }}" class="p-6" style="z-index: 1000"
+                  enctype="multipart/form-data">
                 @csrf
                 @method('post')
 
@@ -45,11 +47,12 @@
                 <div class="mt-6">
                     <x-input-label for="cover" value="{{ __('cover') }}" class="sr-only"/>
 
-                    <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                           id="cover"
-                           name="cover"
-                           type="file"
-                           placeholder="{{ __('cover') }}"
+                    <input
+                        class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                        id="cover"
+                        name="cover"
+                        type="file"
+                        placeholder="{{ __('cover') }}"
                     >
 
 
@@ -197,14 +200,21 @@
                     <x-input-label for="password" value="{{ __('pdf') }}" class="sr-only"/>
 
                     <div class="flex items-center justify-center w-full">
-                        <label for="pdf" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                        <label for="pdf"
+                               class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
                             <div class="flex flex-col items-center justify-center pt-5 pb-6">
-                                <svg aria-hidden="true" class="w-10 h-10 mb-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
-                                <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span> or drag and drop</p>
-                                <p class="text-xs text-gray-500 dark:text-gray-400">pdf, text, jdhd or GIhF (MAX. 800x400px)</p>
+                                <svg aria-hidden="true" class="w-10 h-10 mb-3 text-gray-400" fill="none"
+                                     stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                          d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                                </svg>
+                                <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span>
+                                    or drag and drop</p>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">pdf, text, jdhd or GIhF (MAX.
+                                    800x400px)</p>
                             </div>
-                            <input  type="file" id="pdf" accept="pdf"
-                                   name="pdf" class="hidden" />
+                            <input type="file" id="pdf" accept="pdf"
+                                   name="pdf" class="hidden"/>
                         </label>
                     </div>
 
@@ -223,79 +233,103 @@
             </form>
         </x-modal>
 
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-4">
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-4 overflow-auto" style="width: 80vw !important;">
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                     <th scope="col" class="px-6 py-3">
-                        Product name
+                        cover
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Color
+                        title
                     </th>
                     <th scope="col" class="px-6 py-3">
                         Category
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Price
+                        pages
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        edition
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        language
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        description
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        publisher date
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        isbn
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        author
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        publisher
+                    </th>
+                    <th scope="col" class="px-6 py-3">
                     </th>
                     <th scope="col" class="px-6 py-3">
                         <span class="sr-only">Edit</span>
                     </th>
+                    <th scope="col" class="px-6 py-3">
+                    </th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        Apple MacBook Pro 17"
-                    </th>
-                    <td class="px-6 py-4">
-                        Silver
-                    </td>
-                    <td class="px-6 py-4">
-                        Laptop
-                    </td>
-                    <td class="px-6 py-4">
-                        $2999
-                    </td>
-                    <td class="px-6 py-4 text-right">
-                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                    </td>
-                </tr>
-                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        Microsoft Surface Pro
-                    </th>
-                    <td class="px-6 py-4">
-                        White
-                    </td>
-                    <td class="px-6 py-4">
-                        Laptop PC
-                    </td>
-                    <td class="px-6 py-4">
-                        $1999
-                    </td>
-                    <td class="px-6 py-4 text-right">
-                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                    </td>
-                </tr>
-                <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        Magic Mouse 2
-                    </th>
-                    <td class="px-6 py-4">
-                        Black
-                    </td>
-                    <td class="px-6 py-4">
-                        Accessories
-                    </td>
-                    <td class="px-6 py-4">
-                        $99
-                    </td>
-                    <td class="px-6 py-4 text-right">
-                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                    </td>
-                </tr>
+
+                @foreach($books as $book)
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            <img src="{{$book->cover}}" class="h-7 w-7">
+                        </th>
+                        <td class="px-6 py-4">
+                            {{ $book->title }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ $book->categorie->name }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ $book->pages}}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ $book->edition}}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ $book->language}}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ $book->description}}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ $book->publisher_date}}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ $book->isbn}}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ $book->author->first_name .' ' . $book->author->last_name}}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ $book->publisher->name}}
+                        </td>
+                        <td class="px-6 py-4">
+                            <a href="{{ $book->pdf}}"
+                               class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">pdf</a>
+                        </td>
+                        <td class="px-6 py-4">
+                            <a href=""
+                               class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">archive</a>
+                        </td>
+                        <td class="px-6 py-4 text-right">
+                            <a href="" target="_blank"
+                               class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-yellow-900">Edit</a>
+                        </td>
+                    </tr>
+                @endforeach
                 </tbody>
             </table>
         </div>
@@ -308,9 +342,9 @@
         PSPDFKit.load({
             container: "#pspdfkit",
             document: "https://res.cloudinary.com/dggvib6ib/image/upload/v1679536032/Algorithmique_aliw5g.pdf",
-            xhrHeaders: { 'Access-Control-Allow-Origin': '*' },
-            xhrFields: { withCredentials: true },
-            requestOptions: { mode: 'no-cors' }
+            xhrHeaders: {'Access-Control-Allow-Origin': '*'},
+            xhrFields: {withCredentials: true},
+            requestOptions: {mode: 'no-cors'}
         })
             .then(function (instance) {
                 console.log("PSPDFKit loaded", instance);

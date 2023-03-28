@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Comment;
 use Cloudinary\Api\Exception\ApiError;
 use Cloudinary\Cloudinary;
 use Illuminate\Contracts\Foundation\Application;
@@ -20,25 +21,41 @@ class BookController extends Controller
     public function index(): Response
     {
         return response()->view('books.index', [
-            'books' => Book::all(),
+            'books' => Book::with('categorie')
+                ->with('Publisher')
+                ->with('Author')
+                ->get(),
         ]);
     }
 
     public function detail(int $id): Response
     {
-        echo $id;
         return response()->view('books.detail', [
-            'book' => $id,
+            'book' => Book::with('categorie')
+                ->with('Publisher')
+                ->with('Author')
+                ->with('comments')
+                ->findorfail($id),
+            'comments' => comment::with('user')
+                ->where('post_id', $id)
+                ->get(),
         ]);
     }
+
 
     /**
      * Show the form for creating a new resource.
      */
     public function create(): Application|Factory|View
     {
+        $Books = Book::with('categorie')
+            ->with('Publisher')
+            ->with('Author')
+            ->get();
 
-        return view('books.create');
+        return view('books.create', [
+            'books' => $Books,
+        ]);
     }
 
     /**
@@ -47,15 +64,8 @@ class BookController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        $request->validate([
-            'title' => 'required',
-            'author' => 'required',
-            'cover' => 'required',
-            'pdf' => 'required',
-        ]);
 
         $cover = $request->file('cover')?->getRealPath();
-
         $pdf = $request->file('pdf')?->getRealPath();
 
         $last = (new Book)->get()->last()->id ?? 1;
@@ -64,7 +74,7 @@ class BookController extends Controller
 
         $PDF = 'pdf' . $last . 'Book-LiteHub';
 
-        if ($cover) {
+        if ($cover && $pdf) {
 
             $cloudinary = new Cloudinary(
                 [
@@ -76,28 +86,14 @@ class BookController extends Controller
                 ]
             );
 
-            $upload = $cloudinary->uploadApi()->upload(
+            $cloudinary->uploadApi()->upload(
                 $cover,
                 [
                     'public_id' => $COVER,
                     'folder' => 'LiteHub/images',
                 ]
             );
-
-        }
-        if ($pdf) {
-
-            $cloudinary = new Cloudinary(
-                [
-                    'cloud' => [
-                        'cloud_name' => env('CLOUDINARY_CLOUD_NAME'),
-                        'api_key' => env('CLOUDINARY_API_KEY'),
-                        'api_secret' => env('CLOUDINARY_API_SECRET'),
-                    ],
-                ]
-            );
-
-            $upload = $cloudinary->uploadApi()->upload(
+            $cloudinary->uploadApi()->upload(
                 $pdf,
                 [
                     'public_id' => $PDF,
@@ -112,7 +108,7 @@ class BookController extends Controller
                     $request->all(),
                     [
                         'cover' => 'https://res.cloudinary.com/dggvib6ib/image/upload/v1679926507/LiteHub/images/' . $COVER,
-                        'pdf' => 'https://res.cloudinary.com/dggvib6ib/pdf/upload/v1679926507/LiteHub/images/' . $PDF,
+                        'pdf' => 'https://res.cloudinary.com/dggvib6ib/image/upload/v1679926507/LiteHub/pdf/' . $PDF,
                     ]
                 ) :
                 $request->all()
