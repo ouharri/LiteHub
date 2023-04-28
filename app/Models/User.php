@@ -63,7 +63,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function groups(): BelongsToMany
     {
-        return $this->belongsToMany(Group::class, 'members');
+        return $this->belongsToMany(Group::class, 'members','id');
     }
 
     public function posts(): BelongsToMany
